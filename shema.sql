@@ -8,7 +8,9 @@ CREATE TABLE dept_emp (
 	dept_no VARCHAR,
 	from_date VARCHAR,
 	to_date VARCHAR,
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
+    FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
+    FOREIGN KEY (dept_no) REFERENCES departments (dept_no)
 );
 
 CREATE TABLE dept_manager (
@@ -16,7 +18,9 @@ CREATE TABLE dept_manager (
 	emp_no VARCHAR,
 	from_date VARCHAR,
 	to_date VARCHAR,
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
+    FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
+    FOREIGN KEY (dept_no) REFERENCES departments (dept_no)
 );
 
 CREATE TABLE employees (
@@ -33,7 +37,8 @@ CREATE TABLE salaries (
 	salary VARCHAR,
 	from_date VARCHAR,
 	to_date VARCHAR,
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
+    FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
 
 CREATE TABLE titles (
@@ -41,6 +46,7 @@ CREATE TABLE titles (
 	title VARCHAR,
 	from_date VARCHAR,
 	to_date VARCHAR,
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
+    FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
 
